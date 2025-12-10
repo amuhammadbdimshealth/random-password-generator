@@ -1,3 +1,105 @@
-body {
+/* COLOR PALETTE:
+    Primary Color Black: #273549
+    Secondary Color Green: #4ADF86
+    Button Text Green: #55F991
+    Button Text White: #FFFFFF
+    
+    Background Color Green: #10B981
+    Background Color Black1: #273549
+    Background Color Black2: #273549
+*/
+
+/* Create variables for all the colors */
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --primary-color-black: #273549;
+    --secondary-color-green: #4ADF86;
+    
+    --text-green: #55F991;
+    --text-white: #FFFFFF;
+    
+    --background-color-green: #10B981;
+    --background-color-black: #2F3E53;
+    
+}
+
+.green {
+    color: var(--text-green);
+}
+
+.bold {
+    font-weight: 900;
+}
+
+/* Reset all styles */
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;    
+}
+
+body {    
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--white);
+
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-white);
+}
+
+#container {
+    width: 500px;
+    min-height: 500px;    
+    padding: 10px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+
+    background-color: var(--primary-color-black);
+    border: 1px solid var(--primary-color-black);    
+}
+
+#generate-password {  
+    border-bottom: 1px solid var(--background-color-black);
+}
+
+#btn-generate-password {
+    width: 150px;
+    height: 40px;
+    margin: 30px 0 20px 0;
+
+    background-color: var(--background-color-green);
+    border: none;
+    border-radius: 5px;
+
+    color: var(--text-white);    
+    cursor: pointer;
+}
+
+#passwords-output {            
+    display: flex;
+    justify-content: space-around;
+    gap: 20px ;
+}
+
+#passwords-output .password {
+    width: 200px;
+    padding: 10px;
+
+    background-color: var(--background-color-black);    
+    border-radius: 5px;
+
+    text-align: center;    
+    color: var(--text-green);    
 }
