@@ -64,7 +64,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
 
     background-color: var(--primary-color-black);
     border: 1px solid var(--primary-color-black);    
@@ -102,4 +104,35 @@ body {
 
     text-align: center;    
     color: var(--text-green);    
+}
+
+#password-length {
+    width: 50px;
+    height: 30px;
+    margin: 30px 0 20px 0;
+
+    background-color: var(--background-color-black);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-white);  
+    text-align: center;    
+}
+
+/* remove arrows in input number */
+#password-length::-webkit-outer-spin-button,
+#password-length::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Style toggle symbols and numbers. Make them look like btn-generate-password */
+#toggle-symbols, #toggle-numbers {
+    width: 20px;
+    height: 20px;    
+    margin-left: 10px;    
+    cursor: pointer;    
+}
+/* Styles the label for toggle symbols and numbers */
+label[for="toggle-symbols"], label[for="toggle-numbers"] {    
+    cursor: pointer;
 }
