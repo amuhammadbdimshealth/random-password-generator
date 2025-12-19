@@ -1,3 +1,6 @@
+# Project Link
+[Random Password Generator](https://random-password-generatorx.netlify.app/)
+
 # Getting Started
 Install the dependencies and run the project
 ```
