@@ -1,25 +1,44 @@
 const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 ""/""];
 
+const symbols = characters.filter(char => !(/[a-zA-Z0-9]/).test(char));
+const nuymbers = characters.filter(char => (/[0-9]/).test(char));
+const letters = characters.filter(char => (/[a-zA-Z]/).test(char));
+
 
 // Store the dom elements in variables
 const generateBtn = document.getElementById("btn-generate-password");
 const passwordOneEl = document.querySelector(".password.one");
 const passwordTwoEl = document.querySelector(".password.two");
 const passwordLengthEl = document.getElementById("password-length");
+const symbolToggleEl = document.getElementById("toggle-symbols");
+const numberToggleEl = document.getElementById("toggle-numbers");
+
 let typingTimer;                // Timer identifier
 const doneTypingInterval = 500;  // Time in ms (0.5 seconds)
 
+// Function to construct charecter set based on symbol toggle and number toggle checkbox values
+function constructCharacterSet() {
+    let charSet = [...letters]; // Start with letters
+    if (symbolToggleEl.checked) {
+        charSet = [...charSet, ...symbols]; // Add symbols if checked
+    }
+    if (numberToggleEl.checked) {
+        charSet = [...charSet, ...nuymbers]; // Add numbers if checked
+    }
+    return charSet;
+}
 // Function to generate a random password
 function generatePassword() {
     let passwordOne = "";
     let passwordTwo = "";
+    const charSet = constructCharacterSet();
     const passwordLength = document.getElementById("password-length").value || 15;
     for (let i = 0; i < passwordLength; i++) {
-        let randomIndexOne = Math.floor(Math.random() * characters.length);
-        let randomIndexTwo = Math.floor(Math.random() * characters.length);
-        passwordOne += characters[randomIndexOne];
-        passwordTwo += characters[randomIndexTwo];
+        let randomIndexOne = Math.floor(Math.random() * charSet.length);
+        let randomIndexTwo = Math.floor(Math.random() * charSet.length);
+        passwordOne += charSet[randomIndexOne];
+        passwordTwo += charSet[randomIndexTwo];
     }
     return { passwordOne, passwordTwo };
 }

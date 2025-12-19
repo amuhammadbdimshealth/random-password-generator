@@ -134,5 +134,15 @@ body {
 }
 /* Styles the label for toggle symbols and numbers */
 label[for="toggle-symbols"], label[for="toggle-numbers"] {    
-    cursor: pointer;
+    cursor: pointer;    
+}
+
+#user-actions .options > * {
+    display: block;
+}
+#user-actions .options {
+    display: flex;
+    justify-content: start;    
+    align-items: center;
+    gap: 20px ;
 }
